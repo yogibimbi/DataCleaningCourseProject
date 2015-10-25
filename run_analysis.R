@@ -40,6 +40,6 @@ activityLabels = read.csv(paste(dataDir, "activity_labels.txt", sep = "/"), head
 activities = factor(activityLabels[, 2])
 stdmeanDF = mutate(stdmeanDF, activity = activities[activity])
 
-# 5. group by subject and activity, then summarize
-groupedDF = stdmeanDF %>% group_by(subject, activity) %>% summarise(tBodyAcc.mean...Y = mean(tBodyAcc.mean...Y))
+# 5. group by subject and activity, then summarize over every variable
+groupedDF = stdmeanDF %>% group_by(subject, activity) %>% summarise_each(funs(mean))
 write.table(groupedDF, file = "groupedDF.txt", row.name = FALSE)
