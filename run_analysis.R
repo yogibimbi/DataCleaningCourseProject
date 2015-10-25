@@ -4,7 +4,6 @@ dataDir = "UCI HAR Dataset"
 test = "test"
 train = "train"
 
-
 columnHeaders = read.csv(paste(dataDir, "features.txt", sep = "/"), header = FALSE, stringsAsFactors = FALSE, sep = "")
 
 # put together the test data
@@ -43,3 +42,4 @@ stdmeanDF = mutate(stdmeanDF, activity = activities[activity])
 
 # 5. group by subject and activity, then summarize
 groupedDF = stdmeanDF %>% group_by(subject, activity) %>% summarise(tBodyAcc.mean...Y = mean(tBodyAcc.mean...Y))
+write.table(groupedDF, file = "groupedDF.txt", row.name = FALSE)
