@@ -1,0 +1,10 @@
+Well, in the dataset groupedDF.txt, the first two columns are as follows
+
+subject - marks which subject (from 1 to 30) in the experiment the data belongs to
+activity - is the activity the acceleromenter data belongs to
+for the following columns, the infor was a bit sparse, the documentation had this to say:
+- Features are normalized and bounded within [-1,1].
+- The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/seg2).
+- The gyroscope units are rad/seg.
+
+All values constitute the mean of the variable, for the particular subject and activity.
